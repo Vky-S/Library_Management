@@ -112,10 +112,30 @@ passport.use(new FacebookStrategy({
     profileFields: ["email", "first_name", "last_name"]
   },
   function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate({faceBookId: profile.id, loggedInTime: new Date()}, function(err, user) {
-      if (err) { return done(err); }
-      done(null, user);
-     });
+    User.find({faceBookId: profile.id}, function(err, foundUser){
+      if(err){
+        console.log(err);
+      } else {
+        if(foundUser.length > 0){
+          User.findOneAndUpdate({faceBookId: foundUser[0].faceBookId},{loggedInTime: new Date()},function(err){
+            if(err) {
+              console.log(err);
+            } else {
+              //console.log("Login Time Updated");
+            }
+          });
+          return done(err, foundUser);
+        } else {
+          User.create({first_name: profile.displayName, last_name: profile.username ,faceBookId: profile.id, loggedInTime: new Date()}, function(err, createdUser){
+            if(err){
+              console.log(err);
+            } else {
+              return done(err, createdUser);
+            }
+          });
+        }
+      }
+    });
   }
 ));
 
