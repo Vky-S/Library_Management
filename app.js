@@ -112,7 +112,6 @@ passport.use(new FacebookStrategy({
     profileFields: ["email", "first_name", "last_name"]
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log(profile);
     User.find({faceBookId: profile.id}, function(err, foundUser){
       if(err){
         console.log(err);
@@ -127,7 +126,7 @@ passport.use(new FacebookStrategy({
           });
           return done(err, foundUser);
         } else {
-          User.create({first_name: profile.displayName, last_name: profile.username ,faceBookId: profile.id, loggedInTime: new Date()}, function(err, createdUser){
+          User.create({first_name: profile.name.givenName, last_name: profile.name.familyName ,faceBookId: profile.id, loggedInTime: new Date()}, function(err, createdUser){
             if(err){
               console.log(err);
             } else {
