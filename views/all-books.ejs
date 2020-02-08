@@ -1,0 +1,103 @@
+<%- include("partials/header") -%>
+<div class="outer-elements">
+<div class="sidepane">
+  <div class="logo flex-item">
+    <img class="logo-img" src="/images/books_icon.png" alt="Books_Logo"><p class="logo-heading">LMS</p>
+  </div>
+  <div class="flex-item">
+  <a href="/home" class="home"><i class="fas fa-home fa-sm icon"></i>Home</a>
+  </div>
+  <hr>
+  <div class="flex-item">
+    <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="books" class="books"><i data-value="books" class="fas fa-book fa-sm icon"></i>Books<i data-value="books" class="fas fa-sort-down fa-sm down-icon"></i></a>
+    <ul>
+      <li><a class="selected" href="/all_books">All Books</a></li>
+      <li><a href="/my_books">My Books</a></li>
+    </ul>
+  </div>
+  <hr>
+  <div class="flex-item">
+    <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="request-book" class="request-book"><i data-value="request-book" class="fa fa-hand-o-up fa-sm icon" aria-hidden="true"></i>Requests<i data-value="request-book" class="fas fa-sort-down fa-sm down-icon"></i></a>
+    <ul class="active">
+      <li><a href="/request_a_book">Request a Book</a></li>
+      <li><a href="/view_requests">View Requests</a></li>
+    </ul>
+  </div>
+<hr>
+<div class="flex-item">
+  <a href="/user_profile" class="user-info"><i class="fas fa-user-circle fa-sm icon"></i>My Info</a>
+</div>
+<hr>
+</div>
+<div class="copyright">
+  &copy; 2020
+</div>
+<div class="log-out" onclick="location.href = '/logout'">
+  <a class="log-out-text" href="/logout"><i class="fas fa-sign-out-alt icon-lg"></i>Logout</a>
+</div>
+</div>
+
+<div class="outer-div">
+</div>
+<div class="search-bar">
+  <form class="" action="/all_books/search" method="POST">
+    <input class="search-text" autocomplete="off" type="text" name="search_text" placeholder="Search a Book">
+    <button class="search-icon" onclick="this.form.submit()"><i class="fas fa-search fa-lg s-icon"></i></button>
+  </form>
+</div>
+<hr class="hr-rule">
+<div class="view">
+<a href="/all_books"><i class="fas fa-th-large fa-lg l-icon selected"></i></a>
+<a href="/all_books_list"><i class="fas fa-bars fa-lg l-icon"></i></a>
+</div>
+<a href="/guide/others#all-books-guide" class="help"><i class="fas fa-question fa-lg"></i></a>
+
+
+<div class="grid-parent">
+  <% if(allBooks !== "" && issuedBooks !== ""){ %>
+  <%  allBooks.forEach((allbook) => { %>
+      <% var bookAdded = false; %>
+      <% issuedBooks.forEach((issuedbook) => { %>
+        <% if(allbook.book_name === issuedbook.book_name && allbook.author_name === issuedbook.author_name) { %>
+          <div class="grid-child">
+            <form  action="/all_books/issue" method="POST">
+            <img class="book-img" src="<%= allbook.book_cover_url %>" alt="coding-book">
+            <p class="book-name"><span>Book Name : </span> <%= allbook.book_name %></p>
+            <p class="author-name"><span>Author Name : </span> <%= allbook.author_name %></p>
+            <p class="book-price"><span>Price : </span> <%= allbook.price %></p>
+            <% const bookDetails = [allbook.book_name, allbook.author_name, allbook.price, allbook.book_cover_url]; %>
+              <button disabled title="This Book has already been issued!" class="disabled-button" value="<%= bookDetails %>" type="submit" name="issue">Issue</button>
+            </form>
+          </div>
+        <%  bookAdded = true; %>
+        <% } %>
+      <% }); %>
+      <% if(bookAdded === false){ %>
+        <div class="grid-child">
+          <form  action="/all_books/issue" method="POST">
+          <img class="book-img" src="<%= allbook.book_cover_url %>" alt="coding-book">
+          <p class="book-name"><span>Book Name : </span> <%= allbook.book_name %></p>
+          <p class="author-name"><span>Author Name : </span> <%= allbook.author_name %></p>
+          <p class="book-price"><span>Price : </span> <%= allbook.price %></p>
+          <% const bookDetails = [allbook.book_name, allbook.author_name, allbook.price, allbook.book_cover_url]; %>
+              <button  class="issue-button" value="<%= bookDetails %>" type="submit" name="issue">Issue</button>
+            </form>
+          </div>
+      <% } %>
+    <% }); %>
+  <% } else { %>
+    <% allBooks.forEach((book) => { %>
+  <div class="grid-child">
+    <form  action="/all_books/issue" method="POST">
+    <img class="book-img" src="<%= book.book_cover_url %>" alt="coding-book">
+    <p class="book-name"><span>Book Name : </span> <%= book.book_name %></p>
+    <p class="author-name"><span>Author Name : </span> <%= book.author_name %></p>
+    <p class="book-price"><span>Price : </span> <%= book.price %></p>
+    <% const bookDetails = [book.book_name, book.author_name, book.price, book.book_cover_url]; %>
+      <button class="issue-button" value="<%= bookDetails %>" type="submit" name="issue">Issue</button>
+    </form>
+  </div>
+  <% }); %>
+  <% }%>
+</div>
+<%- include("partials/footer") -%>

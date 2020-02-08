@@ -1,0 +1,63 @@
+<%- include("partials/header") -%>
+<div class="outer-container">
+  <%- include("otherlogin") -%>
+
+<div class="back-to-login">
+  <p>
+    Already own an account.
+    <a href="/login"> Login
+    </a>
+    </p>
+</div>
+
+  <div class="vertical-line">
+  </div>
+  <div class="register-form">
+    <% if(error) { %>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Error!</strong> <%= error %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% } %>
+    <form action="/register" method="POST">
+      <div class="form-group col-md-4">
+        <label for="inputText4">First Name</label>
+        <input type="text" value="<%= formData.fname %>" required oninvalid="this.setCustomValidity('Please enter a valid First Name!')" oninput="this.setCustomValidity('')" autocomplete="off" name="fname" class="form-control" id="inputText4" aria-describedby="textHelp">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputText4">Last Name</label>
+        <input type="text" value="<%= formData.lname %>" required oninvalid="this.setCustomValidity('Please enter a valid Last Name!')" oninput="this.setCustomValidity('')" autocomplete="off" name="lname" class="form-control" id="inputText4" aria-describedby="textHelp">
+      </div>
+   <div class="form-group col-md-4">
+     <label for="inputEmail4">Email address</label>
+     <input type="email" value="<%= formData.email %>" required oninvalid="this.setCustomValidity('Please enter a valid Email Address!')" oninput="this.setCustomValidity('')" autocomplete="off" name="email" class="form-control" id="inputEmail4" aria-describedby="emailHelp">
+   </div>
+   <div class="form-group col-md-4">
+     <label for="inputPassword4">Password</label>
+     <input type="password" autocomplete="off" name="password" required oninvalid="this.setCustomValidity('Please enter a valid password!')" oninput="this.setCustomValidity('')" class="form-control" id="inputPassword4">
+   </div>
+   <div class="form-group col-md-4">
+     <label for="inputPassword4">Confirm Password</label>
+     <input type="password" autocomplete="off" name="confirm_password" required oninvalid="this.setCustomValidity('Please enter a valid password!')" oninput="this.setCustomValidity('')" class="form-control" id="inputPassword4">
+   </div>
+   <div class="form-group">
+    <label for="exampleFormControlSelect1">Member Type</label>
+    <select name="memberType" class="form-control member-type member-type-adduser-reg" required oninvalid="this.setCustomValidity('Please choose a Member Type!')" oninput="this.setCustomValidity('')" id="exampleFormControlSelect1">
+      <option value="">None</option>
+      <option value="Student">Student</option>
+      <option value="Teacher">Teacher</option>
+      <option value="Admin">Admin</option>
+    </select>
+  </div>
+   <button type="submit" class="btn btn-primary btn-block btn-lg log-btn">Register</button>
+ </form>
+ </div>
+</div>
+
+<script type="text/javascript">
+
+</script>
+
+<%- include("partials/footer") -%>

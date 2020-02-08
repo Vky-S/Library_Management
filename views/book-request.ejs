@@ -1,0 +1,72 @@
+<%- include("partials/header") -%>
+
+<div class="sidepane">
+  <div class="logo flex-item">
+    <img class="logo-img" src="/images/books_icon.png" alt="Books_Logo"><p class="logo-heading">LMS</p>
+  </div>
+  <div class="flex-item">
+  <a href="/home" class="home"><i class="fas fa-home fa-sm icon"></i>Home</a>
+  </div>
+  <hr>
+  <div class="flex-item">
+    <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="books" class="books"><i data-value="books" class="fas fa-book fa-sm icon"></i>Books<i data-value="books" class="fas fa-sort-down fa-sm down-icon"></i></a>
+    <ul class="active">
+      <li><a href="/all_books">All Books</a></li>
+      <li><a href="/my_books">My Books</a></li>
+    </ul>
+  </div>
+  <hr>
+  <div class="flex-item">
+    <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="request-book" class="request-book"><i data-value="request-book" class="fa fa-hand-o-up fa-sm icon" aria-hidden="true"></i>Requests<i data-value="request-book" class="fas fa-sort-down fa-sm down-icon"></i></a>
+    <ul>
+      <li><a class="selected" href="/request_a_book">Request a Book</a></li>
+      <li><a href="/view_requests">View Requests</a></li>
+    </ul>
+  </div>
+<hr>
+<div class="flex-item">
+  <a href="/user_profile" class="user-info"><i class="fas fa-user-circle fa-sm icon"></i>My Info</a>
+</div>
+<hr>
+</div>
+<div class="copyright">
+  &copy; 2020
+</div>
+<hr class="hr-rule">
+<div class="log-out" onclick="location.href = '/logout'">
+  <a class="log-out-text" href="/logout"><i class="fas fa-sign-out-alt icon-lg"></i>Logout</a>
+</div>
+<a href="/guide/others#request-book-guide" class="help"><i class="fas fa-question fa-lg"></i></a>
+
+
+
+<div class="book-request-form">
+  <% if(bookName && user) { %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Error!</strong> The book named <strong>'<%= bookName %>'</strong> has already been requested by <%= user %>. Check out under View Requests for the status of the book.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <% } else if(bookName) {%>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Error!</strong> The book named <strong>'<%= bookName %>'</strong> has already been requested by another user. Look forward for the book in a few months.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+    <% } %>
+  <form action="/request_a_book" method="POST">
+ <div class="form-group col-md-4">
+   <label for="inputText4">Book Name</label>
+   <input type="text" autocomplete="off" name="book_name" class="form-control" id="inputText4">
+ </div>
+ <div class="form-group col-md-4">
+   <label for="inputText4">Author Name</label>
+   <input type="text" autocomplete="off" name="author_name" class="form-control" id="inputText4">
+ </div>
+ <button type="submit" class="btn btn-outline-primary btn-block btn-lg submit-request">Submit Request</button>
+</form>
+</div>
+
+<%- include("partials/footer") -%>

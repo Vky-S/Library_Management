@@ -1,0 +1,48 @@
+<script type="text/javascript">
+  $(window).scroll(function(e){
+    let $el = $(".search-bar");
+    let $el1 = $(".hr-rule");
+    let $el2 = $(".view");
+    let isPositionFixed = ($el.css("position") == "fixed");
+    if ($(this).scrollTop() > 1 && !isPositionFixed){
+      $el.css({"position": "fixed", "top": "3%", "z-index": "10"});
+      $el1.css({"position": "fixed", "top": "7%", "z-index": "10"});
+      $el2.css({"position": "fixed", "top": "3%", "z-index": "10"});
+    }
+    if ($(this).scrollTop() < 1 && isPositionFixed){
+      $el.css({"position": "absolute", "top": "3%"});
+      $el1.css({"position": "absolute", "top": "7%"});
+      $el2.css({"position": "absolute", "top": "3%"});
+    }
+  });
+
+  $(".change-password-text").click(function(){
+    $(".change_password").toggleClass("show-form");
+  });
+
+  $(".left-pane a").click(function(){
+    $(".top-pane").addClass("top-pane-2");
+    $(".left-pane a").removeClass("current-active");
+    $(this).toggleClass("current-active");
+  });
+
+  function getId(element) {
+    let eleId = element.id;
+    $(".left-pane a").removeClass("current-active");
+    $("." + eleId).toggleClass("current-active");
+  }
+
+  function removeClass(element){
+    let eleId = element.id;
+    $("." + eleId).removeClass("current-active");
+  }
+
+  let url = String(window.location.href);
+  if(url.includes("#")){
+    let eleId = url.substring(url.indexOf("#") + 1, url.length);
+  $("." + eleId).click();
+  }
+
+</script>
+</body>
+</html>

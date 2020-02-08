@@ -1,0 +1,147 @@
+<%- include("partials/header") %>
+
+<div class="top-pane">
+  <div class="logo flex-item">
+    <img class="logo-img" src="/images/books_icon.png" alt="Books_Logo"><p class="logo-heading">LMS</p>
+  </div>
+  <div class="admin-guide-btn">
+    <a href="/guide/admin" class="admin-guide current-active">Admin</a>
+  </div>
+  <hr class="hr-guide">
+  <div class="other-guide-btn">
+    <a href="/guide/others" class="other-guide">Others</a>
+  </div>
+</div>
+
+<div class="left-pane">
+  <div class="flex-item flex-guide">
+    <a href="#overview-guide" class="overview-guide">Overview</a>
+  </div>
+  <div class="flex-item flex-guide">
+    <a href="#home-guide" class="home-guide">Home</a>
+  </div>
+  <div class="flex-item flex-guide">
+    <a href="#books-guide" class="books-guide">Books</a>
+    <ul class="list">
+      <li><a href="#add-book-guide" class="add-book-guide">Add a Book</a></li>
+      <li><a href="#issued-books-guide" class="issued-books-guide">Issued Books</a></li>
+      <li><a href="#all-books-guide" class="all-books-guide">All Books</a></li>
+    </ul>
+  </div>
+  <div class="flex-item flex-guide">
+    <a href="#requests-guide" class="requests-guide">Requests</a>
+    <ul class="list">
+      <li><a href="#all-requests-guide" class="all-requests-guide">All Book Requests</a></li>
+    </ul>
+  </div>
+  <div class="flex-item flex-guide">
+    <a href="#users-guide" class="users-guide">Users</a>
+    <ul class="list">
+      <li><a href="#all-users-guide" class="all-users-guide">All Users</a></li>
+      <li><a href="#add-user-guide" class="add-user-guide">Add User</a></li>
+    </ul>
+  </div>
+  <div class="flex-item flex-guide">
+    <a href="#my-info-guide" class="my-info-guide">My Info</a>
+  </div>
+</div>
+<hr class="hr-content">
+
+<div class="content">
+  <div id="overview-guide" onmouseover="getId(this)" onmouseout="removeClass(this)">
+    <h3>Overview</h3>
+    <p>
+      LMS stands for Library Management System. This guide will help the users to find out the functionalities available in this application. For each functionality, there is a designated section available in which the usage is mentioned along with some images.
+    </p>
+  </div>
+  <hr class="separator">
+  <div id="home-guide" onmouseover="getId(this)" onmouseout="removeClass(this)">
+    <h3>Home</h3>
+    <p>
+      Home page lets the users to quickly peek into the list of available books present in the system, list of book requests that are raised by the particulare logged in user, latest books that are added to the system. On clicking the component in the Home Page, user will be redirected to the particular page which shows the detailed information about the respective component.
+    </p>
+    <img class="guide-img" src="/images/guide/homepage.png" alt="homepage">
+  </div>
+  <hr class="separator">
+  <div id="books-guide" onmouseover="getId(this)" onmouseout="removeClass(this)">
+    <h3>Books</h3>
+    <p>
+      This section consists of three sub categories in which Admin users can able to add a new to the system, view all the books issued to all the users across the system, view all the books that are present in the system.
+    </p>
+    <div id="add-book-guide" onmouseover="getId(this)" onmouseout="removeClass(this)">
+      <h3>Add a Book</h3>
+      <p>
+        In this form, Admin can enter the details of the book that needs to be added to the system. All the fields present in the form is mandatory.
+      </p>
+      <img class="guide-img" src="/images/guide/addbook.png" alt="addbookpage">
+    </div>
+    <br>
+    <div id="issued-books-guide" onmouseover="getId(this)" onmouseout="removeClass(this)">
+      <h3>Issued Books</h3>
+      <p>
+        All the books that are issued to all the users across the system is shown under this page. There are two views available grid and table/list view. Users can choose the desired view. Along with the two views, there is a search bar in which Users can search a book using its name to filter through the long list of books.
+      </p>
+      <h4>Grid View</h4>
+      <img class="guide-img" src="/images/guide/gridviewissued.png" alt="gridviewissued">
+      <br>
+      <br>
+      <h4>List View</h4>
+      <img class="guide-img" src="/images/guide/listissuedbooks.png" alt="listissuedbooks">
+    </div>
+    <br>
+    <hr class="separator">
+    <div id="all-books-guide" onmouseover="getId(this)" onmouseout="removeClass(this)">
+      <h3>All Books</h3>
+      <p>
+        This page will display all the books that are available in the system. As there are two views in issued books page, this page even has two views namely grid and list.
+      </p>
+      <img class="guide-img" src="/images/guide/allbooks.png" alt="allbooks">
+    </div>
+  </div>
+<hr class="separator">
+<div id="requests-guide" onmouseover="getId(this)" onmouseout="removeClass(this)">
+  <h3>Requests</h3>
+  <br>
+  <div id="all-requests-guide" onmouseover="getId(this)" onmouseout="removeClass(this)">
+    <h3>All Book Requests</h3>
+    <p>
+      This page lists all the book requests that are submitted by all the users who have access to the Library Management System. Users can request a book by using the book name and author name. Once the book is available to upload to the system, Admin can use the Book Added button to close the book request. Additionally, this page will list all the pending and completed book requests. If required, Admin can view only the pending requests using the Show Pending Requests button available at the top.
+    </p>
+    <img class="guide-img" src="/images/guide/allbookrequests.png" alt="allbookrequests">
+  </div>
+</div>
+<hr class="separator">
+<div id="users-guide" onmouseover="getId(this)" onmouseout="removeClass(this)">
+  <h3>Users</h3>
+  <p>
+This sections consists of two categories namely All users and add user.
+  </p>
+  <div id="all-users-guide" onmouseover="getId(this)" onmouseout="removeClass(this)">
+    <h3>All Users</h3>
+    <p>
+      Admin can able to view the list of users who have access to the Library Management System from this page. If needed, Admin can delete a user from this page to restrict or revoke access to a particular user. If a user is deleted from this page then the particular user will no longer be able to login again. Admin user can't delete his/her account by own, it has to be done by another Admin.
+    </p>
+    <img class="guide-img" src="/images/guide/allusers.png" alt="allusers">
+  </div>
+  <br>
+  <div id="add-user-guide" onmouseover="getId(this)" onmouseout="removeClass(this)">
+    <h3>Add a User</h3>
+    <p>
+      Admin can also add a new user to the system from within this page. There will be a generic password for the users who are added from the Admin through this page. If required, users can change their password from the My Info page.
+    </p>
+    <img class="guide-img" src="/images/guide/adduser.png" alt="adduser">
+  </div>
+</div>
+<hr class="separator">
+<div id="my-info-guide" onmouseover="getId(this)" onmouseout="removeClass(this)">
+  <h3>My Info</h3>
+  <p>
+    This page will display the information about the logged in user. If the email address field is empty in this page then it is understood that the user have logged in using Google/Facebook/Twitter, users will get a tooltip about the same.
+  </p>
+  <img class="guide-img" src="/images/guide/myinfo.png" alt="myinfo">
+</div>
+<br>
+<hr class="separator">
+</div>
+
+<%- include("partials/footer") %>

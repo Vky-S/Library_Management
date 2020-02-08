@@ -1,0 +1,141 @@
+<%- include("partials/header") -%>
+<div class="outer-div">
+</div>
+  <div class="sidepane">
+    <div class="logo flex-item">
+      <img class="logo-img" src="/images/books_icon.png" alt="Books_Logo"><p class="logo-heading">LMS</p>
+    </div>
+    <div class="flex-item">
+    <a href="/admin/home" class="home selected"><i class="fas fa-home fa-sm icon"></i>Home</a>
+    </div>
+    <hr>
+    <div class="flex-item">
+      <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="books" class="books"><i data-value="books" class="fas fa-book fa-sm icon"></i>Books<i data-value="books" class="fas fa-sort-down fa-sm down-icon"></i></a>
+      <ul class="active">
+        <li><a href="/admin/add_book">Add Book</a></li>
+        <li><a href="/admin/issued_books">Issued Books</a></li>
+        <li><a href="/admin/all_books">All Books</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div class="flex-item">
+      <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="request-book" class="request-book"><i data-value="request-book" class="fa fa-hand-o-up fa-sm icon" aria-hidden="true"></i>Requests<i data-value="request-book" class="fas fa-sort-down fa-sm down-icon"></i></a>
+      <ul class="active">
+        <li><a href="/admin/all_book_requests">All Book Requests</a></li>
+      </ul>
+    </div>
+  <hr>
+  <div class="flex-item">
+    <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="users" class="users"><i data-value="users" class="fas fa-users fa-sm icon"></i>Users<i data-value="users" class="fas fa-sort-down fa-sm down-icon"></i></a>
+    <ul class="active">
+      <li><a href="/admin/all_users">All Users</a></li>
+      <li><a href="/admin/add_user">Add a user</a></li>
+    </ul>
+  </div>
+  <hr>
+  <div class="flex-item">
+    <a href="/admin/user_profile" class="user-info"><i class="fas fa-user-circle fa-sm icon"></i>My Info</a>
+  </div>
+  <hr>
+  </div>
+  <div class="copyright">
+    &copy; 2020
+  </div>
+    <hr class="hr-rule">
+    <div class="log-out" onclick="location.href = '/logout'">
+      <a class="log-out-text" href="/logout"><i class="fas fa-sign-out-alt icon-lg"></i>Logout</a>
+    </div>
+    <a href="/guide/admin#home-guide" class="help"><i class="fas fa-question fa-lg"></i></a>
+
+
+  <div class="dashboard">
+    <div onclick="location.href='/admin/all_users'" class="all-users">
+      <p class="heading-text">All Users</p>
+      <table>
+        <tr>
+          <th>User Name</th>
+          <th>Email</th>
+          <th>Member Type</th>
+        </tr>
+        <% home.allUsers.reverse().forEach((user, i) => { %>
+          <% if(i < 7) { %>
+            <tr>
+              <td> <%= user.first_name + " " + user.last_name %> </td>
+              <td> <%= user.email %> </td>
+              <td> <%= user.member_type %> </td>
+            </tr>
+          <% } %>
+        <% }); %>
+      </table>
+    </div>
+    <div onclick="location.href='/admin/all_book_requests'" class="book-requests">
+      <p class="heading-text">Book Requests</p>
+      <table>
+        <tr>
+          <th>Book Name</th>
+          <th>Author Name</th>
+        </tr>
+        <% home.bookRequests.reverse().forEach((book, i) => { %>
+          <% if(i < 7) { %>
+            <tr>
+              <td> <%= book.book_name %> </td>
+              <td> <%= book.author_name %> </td>
+            </tr>
+          <% } %>
+        <% }); %>
+      </table>
+    </div>
+    <div onclick="location.href='/admin/issued_books'" class="issued-books">
+      <p class="heading-text">Issued Books</p>
+      <table>
+        <tr>
+          <th>Book Name</th>
+          <th>Author Name</th>
+          <th>Price</th>
+          <th>Issued Date</th>
+          <th>Return Date</th>
+        </tr>
+        <% home.issuedBooks.reverse().forEach((book, i) => { %>
+          <% if(i < 7) { %>
+            <% const issuedDate = book.issued_date.getDate() + "/" + (book.issued_date.getMonth() + 1) + "/" + book.issued_date.getFullYear() %>
+            <% const returnDate = book.return_date.getDate() + "/" + (book.return_date.getMonth() + 1) + "/" + book.return_date.getFullYear() %>
+            <tr>
+              <td> <%= book.book_name %> </td>
+              <td> <%= book.author_name %> </td>
+              <td> <%= book.price %> </td>
+              <td> <%= issuedDate %> </td>
+              <td> <%= returnDate %> </td>
+            </tr>
+          <% } %>
+        <% }); %>
+      </table>
+    </div>
+    <div onclick="location.href='/admin/all_books'" class="all-books">
+      <p class="heading-text">All Books</p>
+      <table>
+        <tr>
+          <th>Book Name</th>
+          <th>Author Name</th>
+          <th>Price</th>
+        </tr>
+        <% home.allBooks.reverse().forEach((book, i) => { %>
+          <% if(i < 7) { %>
+            <tr>
+              <td> <%= book.book_name %> </td>
+              <td> <%= book.author_name %> </td>
+              <td> <%= book.price %> </td>
+            </tr>
+          <% } %>
+        <% }); %>
+      </table>
+    </div>
+  </div>
+  <div class="hr-1">
+  </div>
+  <div class="hr-2">
+  </div>
+  <div class="hr-3">
+  </div>
+  <div class="hr-4">
+  </div>
+<%- include("partials/footer") -%>

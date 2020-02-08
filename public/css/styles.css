@@ -1,0 +1,1345 @@
+/* REGISTER AND LOGIN PAGE STYLES */
+
+.col-md-4 {
+  padding-left: 0;
+  padding-right: 0;
+  min-width: 90%;
+}
+.btn-block {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  /* box-shadow: 0 0 0 0.2rem #ffba5a; */
+  width: 90%;
+}
+.outer-container {
+position: relative;
+background-color: white;
+width: 1000px;
+height: 400px;
+top: 60px;
+left: 200px;
+}
+.other-login {
+  position: absolute;
+  left: 80px;
+  top: 90px;
+  padding-top: 100px;
+}
+.login-buttons {
+  width: 300px;
+}
+.facebook {
+  background-color: #3b5998;
+  border-color: #3b5998;
+}
+.facebook:hover {
+  background-color: #3b5198;
+  border-color: #3b5198;
+}
+.twitter {
+  background-color: #00acee;
+  border-color: #00acee;
+}
+.twitter:hover {
+  background-color: #00c0ee;
+  border-color: #00c0ee;
+}
+.twitter:focus {
+    box-shadow: 0 0 0 0.2rem #00c0ee;
+}
+.vertical-line {
+  position: absolute;
+  top: 110px;
+  left: 450px;
+  border-left: 2px solid grey;
+  height: 430px;
+}
+.vertical-line-login {
+  position: absolute;
+  top: 140px;
+  left: 450px;
+  border-left: 2px solid grey;
+  height: 320px;
+}
+.login {
+position: absolute;
+width: 500px;
+left: 500px;
+right: 100px;
+top: 170px;
+}
+.register-form {
+position: absolute;
+width: 500px;
+left: 500px;
+right: 100px;
+top: 0;
+padding-top: 50px;
+}
+.register {
+  margin-top: 20px;
+}
+.member-type {
+  width: 60%;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+.back-to-login {
+  position: absolute;
+  left: 120px;
+  top: 300px;
+  padding-top: 100px;
+}
+
+/* Side Pane Styles*/
+.sidepane {
+  width: 210px;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: center;
+  padding: 0;
+  z-index: 500;
+  position: fixed;
+}
+.logo-img {
+  width: 65px;
+  display: inline-block;
+}
+.logo {
+  margin-bottom: 20px;
+}
+.logo-heading {
+  font-size: 24px;
+  color: #ffba5a;
+  padding-top: 15px;
+  display: inline-block;
+  letter-spacing: 5px;
+}
+hr {
+  border-color: grey;
+  border-style: solid;
+  width: 85%;
+  height: 0.01%;
+  border-width: 0.4px;
+  margin: 10px;
+}
+.home , .books , .user-info, .request-book, .users {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding-left: 2px;
+}
+.icon {
+  margin-left: 25px;
+  margin-right: 15px;
+}
+.home:hover , .books:hover , .user-info:hover, .request-book:hover, .users:hover {
+  color: #ffba5a;
+  text-decoration: none;
+}
+a:hover{
+  color: #ffba5a;
+  text-decoration: none;
+}
+.copyright {
+  color: grey;
+  position: fixed;
+  top: 96%;
+  left: 5.6%;
+  z-index: 600;
+}
+/* Search Bar Styles */
+.search-bar {
+  position: absolute;
+  top: 3%;
+  left: 75%;
+  margin-bottom: -100px;
+  z-index: 4;
+}
+.search-text {
+  font-size: 13px;
+  width: 200px;
+  border: none;
+  border-bottom: 1px solid grey;
+  z-index: 4;
+}
+.search-text:focus {
+  outline: none;
+  border-bottom: 2px solid #ffba5a;
+}
+.search-icon {
+  color: black;
+  border: none;
+  background: none;
+}
+.search-icon:hover {
+  color: #ffba5a;
+}
+.s-icon {
+  margin-left: 5px;
+}
+/* hr rule*/
+.hr-rule {
+  position: absolute;
+  top: 60px;
+  left: 210px;
+  width: 80%;
+  border-bottom: 0.6px solid grey;
+  z-index: 4;
+}
+/* View Styling */
+.view {
+  position: absolute;
+  top: 30px;
+  left: 230px;
+  z-index: 4;
+}
+.l-icon {
+  margin-right: 10px;
+  color: black;
+}
+.l-icon:hover {
+  color: #ffba5a;
+}
+/* Drop down list Styling */
+.down-icon {
+  margin-left: 20px;
+}
+div ul {
+  background-color: #393e46;
+  margin-bottom: 0;
+}
+div ul li {
+  list-style-type: none;
+  color: white;
+  margin: 10px;
+}
+div ul li a {
+  text-decoration: none;
+  color: white;
+}
+div ul li a:hover {
+  text-decoration: none;
+  color: #ffba5a;
+}
+.active {
+  display: none;
+}
+/* Book Request Form Styling */
+.pending-request-button {
+  position: fixed;
+  top: 20px;
+  left: 240px;
+  background-color: none;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+.pending-request-button:hover {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  color: black;
+}
+.pending-request-button:focus {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  outline: none;
+}
+.book-request , .selected {
+  color:#ffba5a;
+}
+.book-request-form {
+  width: 800px;
+  position: absolute;
+  top: 120px;
+  left: 270px;
+}
+.btn-outline-primary {
+  /* border-color: black; */
+  color: black;
+}
+.btn-outline-primary:hover {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  color: black;
+}
+.btn-outline-primary:focus {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  box-shadow: 0 0 0 0.2rem #ffba5a;
+  color: black;
+}
+.submit-request {
+  margin-top: 30px;
+}
+#inputText4:focus {
+  border-color: #ffba5a;
+  box-shadow: 0 0 0 0.2rem #ffba5a;
+}
+#inputEmail4:focus {
+  border-color: #ffba5a;
+  box-shadow: 0 0 0 0.2rem #ffba5a;
+}
+#inputPassword4:focus {
+  border-color: #ffba5a;
+  box-shadow: 0 0 0 0.2rem #ffba5a;
+}
+/* User Information Page Styling */
+.user-information {
+  width: 900px;
+  position: absolute;
+  top: 90px;
+  left: 250px;
+}
+/* Grid View - Books */
+.outer-elements {
+  position: fixed;
+}
+.outer-div {
+  width: 100vw;
+  height: 10vh;
+  position: fixed;
+  background-color: white;
+  z-index: -10;
+}
+.outer-div-admin {
+  width: 100vw;
+  height: 10vh;
+  position: fixed;
+  background-color: white;
+  z-index: 2;
+}
+.grid-parent {
+  display: inline-grid;
+  grid-template-columns: repeat(4, 230px);
+  grid-gap: 50px 80px;
+  align-items: center;
+  position: absolute;
+  top: 100px;
+  left: 250px;
+  z-index: -2;
+  margin-bottom: 30px;
+}
+/* List View - Books */
+.grid-parent-list {
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  grid-gap: 50px 80px;
+  align-items: center;
+  position: absolute;
+  top: 100px;
+  left: 250px;
+  z-index: -2;
+  margin-bottom: 30px;
+}
+/* Individual Grid Styling */
+.grid-child .book-img {
+  width: 180px;
+  height: 240px;
+}
+.grid-child .book-name {
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.grid-child .book-name span {
+  font-weight: bold;
+}
+.grid-child .author-name {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+.grid-child .author-name span {
+  font-weight: bold;
+}
+.grid-child .book-price {
+  font-size: 15px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.grid-child .book-price-admin {
+  font-size: 15px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.grid-child .book-price span {
+  font-weight: bold;
+}
+.grid-child .book-price-admin span {
+  font-weight: bold;
+}
+.grid-child .issue-button {
+  width: 180px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+.grid-child .issue-button:hover {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  color: black;
+}
+.grid-child .issue-button:focus {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  outline: none;
+}
+.grid-child .return-button {
+  width: 180px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+.grid-child .return-button:hover {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  color: black;
+}
+.grid-child .return-button:focus {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  outline: none;
+}
+.return-icon {
+  padding-right: 5px;
+}
+/* Individual List Styling */
+.books-table {
+  position: absolute;
+  top: 100px;
+  left: 240px;
+  padding: 0;
+  margin: 0;
+    z-index: -2;
+}
+.books-table table {
+  position: relative;
+  border-collapse: collapse;
+}
+.books-table table tr th {
+  padding-right: 80px;
+  padding-left: 5px;
+  padding-bottom: 10px;
+  border-bottom: 0.2px solid #ddd;
+  border-width: thin;
+  background-color: #eae9e9;
+  padding-top: 5px;
+  position: sticky;
+  top: 80px;
+}
+.search-admin table tr th {
+  padding-right: 60px;
+}
+.search-admin-all table tr td {
+  padding-right: 110px;
+}
+.books-table table tr td {
+  border-bottom: 0.2px solid #ddd;
+  border-width: thin;
+  height: 130px;
+}
+.books-table table tr:hover {
+  background-color: #f7f7f7 ;
+}
+.books-table .book-img-list {
+  width: 70px;
+}
+.books-table .issue-button-list {
+  width: 110px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+.books-table .issue-button-list:hover {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  color: black;
+}
+.books-table .issue-button-list:focus {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  outline: none;
+}
+
+/* Individual Book Request Styling */
+.requests-table {
+  position: absolute;
+  top: 100px;
+  left: 240px;
+  padding: 0;
+  margin: 0;
+}
+.requests-table table {
+  position: relative;
+  border-collapse: collapse;
+}
+.requests-table table tr th {
+  padding-right: 170px;
+  padding-left: 5px;
+  padding-bottom: 10px;
+  border-bottom: 0.2px solid #ddd;
+  border-width: thin;
+  background-color: #eae9e9;
+  padding-top: 5px;
+  position: sticky;
+  top: 80px;
+}
+.requests-table table tr td {
+  border-bottom: 0.2px solid #ddd;
+  border-width: thin;
+  height: 90px;
+}
+.requests-table table tr:hover {
+  background-color: #f7f7f7 ;
+}
+.requests-table .book-img-request {
+  width: 70px;
+}
+/* Issue Form Styling */
+.selected {
+  color:#ffba5a;
+}
+.issue-form {
+  width: 800px;
+  position: absolute;
+  top: 120px;
+  left: 270px;
+}
+.btn-outline-primary {
+  /* border-color: black; */
+  color: black;
+}
+.btn-outline-primary:hover {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  box-shadow: 0 0 0 0.2rem #ffba5a;
+  color: black;
+}
+.btn-outline-primary:focus {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+    box-shadow: 0 0 0 0.2rem #ffba5a;
+  color: black;
+}
+.submit-issue {
+  margin-top: 30px;
+}
+#inputDate4:focus {
+  border-color: #ffba5a;
+  box-shadow: 0 0 0 0.2rem #ffba5a;
+}
+/* Individual Books List Styling */
+.my-books-table {
+  position: absolute;
+  top: 100px;
+  left: 240px;
+  padding: 0;
+  margin: 0;
+}
+.my-books-table table {
+  position: relative;
+  border-collapse: collapse;
+}
+
+.my-books-table table tr th {
+  padding-right: 75px;
+  padding-left: 5px;
+  padding-bottom: 10px;
+  border-bottom: 0.2px solid #ddd;
+  border-width: thin;
+  background-color: #eae9e9;
+  padding-top: 5px;
+  position: sticky;
+  top: 80px;
+}
+.my-books-table table tr td {
+  border-bottom: 0.2px solid #ddd;
+  border-width: thin;
+  height: 130px;
+  padding-right: 10px;
+}
+.my-books-table table tr:hover {
+  background-color: #f7f7f7 ;
+}
+.my-books-table .book-img-list {
+  width: 70px;
+}
+.my-books-table .issue-button-list {
+  width: 110px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+.my-books-table .issue-button-list:hover {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  color: black;
+}
+.my-books-table .issue-button-list:focus {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  outline: none;
+}
+.my-books-table .return-button-list {
+  width: 110px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+.my-books-table .return-button-list:hover {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  color: black;
+}
+.my-books-table .return-button-list:focus {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  outline: none;
+}
+/* My Books Grid Styling */
+.grid-child .issued-date {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+.grid-child .issued-date span {
+  font-weight: bold;
+}
+.grid-child .return-date {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+.grid-child .return-date span {
+  font-weight: bold;
+}
+/* Add a Book Form Styling */
+.add-book-form {
+  width: 800px;
+  position: absolute;
+  top: 120px;
+  left: 270px;
+}
+.add-book {
+  margin-top: 30px;
+}
+.add-book:focus {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  box-shadow: 0 0 0 0.2rem #ffba5a;
+}
+/* Alert Color */
+.alert-warning {
+  background-color: #ffba5a;
+  color: black;
+  width: 90%;
+}
+/* Issued Books Table and All Books Table */
+.issued-books-table, .all-books-table {
+  position: absolute;
+  top: 100px;
+  left: 240px;
+  padding: 0;
+  margin: 0;
+}
+.issued-books-table table tr th, .all-books-table table tr th {
+    position: sticky;
+    top: 80px;
+}
+.issued-books-table table, .all-books-table table {
+  position: relative;
+  border-collapse: collapse;
+}
+.issued-books-table table tr th, .all-books-table table tr th {
+  padding-right: 100px;
+  padding-left: 5px;
+  padding-bottom: 10px;
+  border-bottom: 0.2px solid #ddd;
+  border-width: thin;
+  background-color: #eae9e9;
+  padding-top: 5px;
+}
+.issued-books-table table tr th {
+  padding-right: 90px;
+}
+.all-books-table table tr th {
+  padding-right: 120px;
+
+}
+.issued-books-table table tr td, .all-books-table table tr td {
+  border-bottom: 0.2px solid #ddd;
+  border-width: thin;
+  height: 130px;
+  padding-right: 20px;
+}
+.issued-books-table table tr:hover, .all-books-table table tr:hover {
+  background-color: #f7f7f7 ;
+}
+.issued-books-table .book-img-list, .all-books-table .book-img-list {
+  width: 70px;
+}
+/* Return to Books Button - Search Page */
+.return-to-books {
+  position: absolute;
+  top: 20px;
+  left: 220px;
+}
+.return-to-books-button {
+  border: 1px solid black;
+  background-color: white;
+  width: 200px;
+  border-radius: 20px;
+}
+.return-to-books-button:hover {
+  background-color: #ffba5a;
+  border-color: #ffba5a;
+}
+.return-to-books-button:focus {
+  background-color: #ffba5a;
+  border-color: #ffba5a;
+  outline:none;
+}
+.left-arrow-icon {
+  padding-right: 5px;
+}
+/* All Book Requests Table */
+.all-book-requests-table {
+  position: absolute;
+  top: 100px;
+  left: 240px;
+  padding: 0;
+  margin: 0;
+}
+
+.all-book-requests-table table {
+  position: relative;
+  border-collapse: collapse;
+}
+.all-book-requests-table table tr th {
+  padding-right: 170px;
+  padding-left: 5px;
+  padding-bottom: 10px;
+  border-bottom: 0.2px solid #ddd;
+  border-width: thin;
+  background-color: #eae9e9;
+  padding-top: 5px;
+  position: sticky;
+  top: 80px;
+}
+.all-book-requests-table table tr td {
+  border-bottom: 0.2px solid #ddd;
+  border-width: thin;
+  height: 80px;
+}
+.all-book-requests-table table tr:hover {
+  background-color: #f7f7f7 ;
+}
+.all-book-requests-table .book-added-button {
+  width: 110px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+.all-book-requests-table .book-added-button:hover {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  color: black;
+}
+.all-book-requests-table .book-added-button:focus {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  outline: none;
+}
+/* All Users Table Styling */
+.all-users-table {
+  position: absolute;
+  top: 100px;
+  left: 240px;
+  padding: 0;
+  margin: 0;
+}
+.all-users-table table {
+  position: relative;
+  border-collapse: collapse;
+}
+.all-users-table table tr th {
+  padding-right: 140px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  border-bottom: 0.2px solid #ddd;
+  border-width: thin;
+  background-color: #eae9e9;
+  padding-top: 5px;
+  position: sticky;
+  top: 80px;
+}
+.all-users-table table tr td {
+  border-bottom: 0.2px solid #ddd;
+  border-width: thin;
+  height: 60px;
+  padding-top: 5px;
+  padding-left: 5px;
+}
+.all-users-table table tr:hover {
+  background-color: #f7f7f7 ;
+}
+.all-users-table table tr:hover > td > button {
+  background-color: #f7f7f7 ;
+}
+/* Add a User Form Styling */
+.add-user-form {
+  width: 800px;
+  position: absolute;
+  top: 120px;
+  left: 270px;
+}
+.add-user {
+  margin-top: 30px;
+    border-color: #ffba5a;
+}
+.add-user:focus {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+}
+.member-type-adduser {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.member-type-adduser:focus {
+  border-color: #ffba5a;
+  box-shadow: 0 0 0 0.2rem #ffba5a;
+}
+.member-type-adduser-reg {
+  width: 90%;
+  margin-bottom: 20px;
+}
+.member-type-adduser-reg:focus {
+  border-color: #ffba5a;
+  box-shadow: 0 0 0 0.2rem #ffba5a;
+}
+/* Admin Home Page Styling */
+.dashboard {
+  width: 1140px;
+  height: 690px;
+  position: absolute;
+  top: 100px;
+  left: 230px;
+  z-index: 200;
+}
+.all-users {
+  width: 520px;
+  height: 300px;
+  position: absolute;
+  left: 30px;
+  top: 20px;
+}
+.all-users table tr td {
+  padding: 4px;
+}
+.all-users:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+.all-users table, .book-requests table, .issued-books table, .all-books table  {
+ width: 520px;
+}
+.all-users table tr , .book-requests table tr, .issued-books table tr, .all-books table tr {
+  border-bottom: 1px solid #ddd;
+}
+.all-users table tr th , .book-requests table tr th, .issued-books table tr th, .all-books table tr th {
+  padding-right: 10px;
+  border-width: thin;
+  background-color: #e2c275;
+  padding-top: 5px;
+  padding-left: 5px;
+}
+.all-users table tr td , .book-requests table tr td, .issued-books table tr td, .all-books table tr td {
+  padding-left: 5px;
+}
+
+.book-requests {
+  width: 520px;
+  height: 300px;
+  position: absolute;
+  left: 580px;
+  top: 20px;
+  bottom: 345px;
+}
+.book-requests table tr td {
+  padding: 4px;
+}
+.book-requests:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+.issued-books {
+  width: 520px;
+  height: 300px;
+  position: absolute;
+  top: 370px;
+  left: 30px;
+}
+.issued-books table tr td {
+  padding: 4px;
+}
+.issued-books:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+.all-books {
+  width: 520px;
+  height: 300px;
+  position: absolute;
+  left: 580px;
+  top: 370px;
+}
+.all-books:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+.hr-1 {
+  width: 2px;
+  height: 320px;
+  background-color: #7d7d7d;
+  position: absolute;
+  top: 110px;
+  left: 795px;
+}
+.hr-2 {
+  width: 2px;
+  height: 320px;
+  background-color: #7d7d7d;
+  position: absolute;
+  top: 460px;
+  left: 795px;
+}
+.hr-3 {
+  width: 530px;
+  height: 2px;
+  background-color: #7d7d7d;
+  position: absolute;
+  top: 445px;
+  left: 250px;
+}
+.hr-4 {
+  width: 530px;
+  height: 2px;
+  background-color: #7d7d7d;
+  position: absolute;
+  top: 445px;
+  left: 810px;
+}
+/* Regular Home Page Styling */
+.my-books {
+  width: 520px;
+  height: 300px;
+  position: absolute;
+  left: 30px;
+  top: 10px;
+}
+.my-books:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+.my-books table, .view-requests table, .new-arrivals table, .all-books table  {
+ width: 520px;
+}
+.my-books table tr , .view-requests table tr, .new-arrivals table tr, .all-books table tr {
+  border-bottom: 1px solid #ddd;
+}
+.my-books table tr th , .view-requests table tr th, .new-arrivals table tr th, .all-books table tr th {
+  padding-right: 10px;
+  border-width: thin;
+  background-color: #e2c275;
+  padding-top: 5px;
+  padding-left: 5px;
+}
+.my-books table tr td , .view-requests table tr td, .new-arrivals table tr td, .all-books table tr td {
+  padding-left: 5px;
+}
+/* Admin Home Page Styling */
+.view-requests {
+  width: 520px;
+  height: 300px;
+  position: absolute;
+  left: 580px;
+  top: 10px;
+  bottom: 345px;
+}
+.view-requests:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+.new-arrivals {
+  width: 520px;
+  height: 300px;
+  position: absolute;
+  top: 370px;
+  left: 30px;
+}
+.new-arrivals:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+.heading-text {
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+  text-decoration: underline;
+  font-weight: bold;
+}
+.all-books {
+  width: 520px;
+  height: 300px;
+  position: absolute;
+  left: 580px;
+  top: 370px;
+}
+.all-books table tr th {
+  position: sticky;
+  top: 375px;
+}
+.all-books table tr td {
+  padding: 4px;
+}
+.all-books:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+/* Logout Button Styling */
+.log-out {
+  z-index: 620;
+  position: fixed;
+  top: 90%;
+  left: 3%;
+  border: 1px solid #ddd;
+  padding: 4px 8px 4px 10px;
+  border-radius: 20px;
+  text-decoration: none;
+  width: 120px;
+  height: 35px;
+}
+.log-out-text {
+  color: white;
+}
+.log-out:hover {
+  background-color: #ffba5a;
+  border-color: #ffba5a;
+    cursor: pointer;
+}
+.log-out:focus {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+}
+.log-out:hover > .log-out-text {
+  text-decoration: none;
+  color: black;
+}
+.icon-lg {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/* Register Form Styling */
+.log-btn {
+  border-color: black;
+  color: black;
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+  text-align: center;
+}
+.log-btn:hover {
+  border-color: #ffba5a;
+    background-color: #fab95b;
+  color: black;
+}
+
+.log-btn:focus {
+  border-color: #ffba5a;
+  background-color: #ffba5a;
+    box-shadow: 0 0 0 0.2rem #fab95b;
+}
+/* Other Login Redirect Form Styling */
+.other-login-redirect {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 60%;
+  height: 60%;
+}
+.other-login-det {
+  display: none;
+}
+/* My Books Page Warning */
+.alert-warning {
+  border-color: #ffba5a;
+  background-color: #fab95b;
+  width: 90%;
+}
+.alert-warning-list {
+  border-color: #ffba5a;
+  background-color: #fab95b;
+  width: 208px;
+  position: absolute;
+  left: 10px;
+}
+.warning-text {
+  width: 220px;
+  position: absolute;
+  top: 80px;
+  left: 360px;
+  z-index: 200;
+}
+/* Disabled Button Styling */
+.disabled-button {
+  width: 180px;
+  border-radius: 20px;
+}
+.disabled-button:hover {
+  background-color: white;
+}
+.disabled-button-list {
+  width: 110px;
+  border-radius: 20px;
+}
+.disabled-button-list:hover {
+  background-color: white;
+}
+#disabledbtn {
+  border: 1px solid grey;
+}
+#disabledbtn:hover {
+  background-color: buttonface;
+  color: rgb(170, 170, 170);
+}
+/* Delete User Button */
+.delete-user-btn {
+  border: none;
+  background-color: none;
+  background-color: none;
+  padding: 0;
+  padding-left: 13%;
+}
+.delete-user-btn:hover {
+  background-color: #f7f7f7;
+}
+.delete-user-btn:focus {
+  outline: none;
+}
+.del-btn:hover {
+    color: #fab95b;
+}
+.disabled-btn:hover {
+  color: rgb(170, 170, 170);
+}
+/* Change Password Form Styling */
+.show-form {
+  display: none;
+}
+.password-alert {
+  width: 600px;
+  left: 250px;
+  top: 10px;
+  z-index: 600;
+}
+/* Help Guide Styling */
+.top-pane {
+  width: 100vw;
+  height: 10vh;
+  background-color: black;
+  position: fixed;
+  z-index: 100;
+}
+.admin-guide-btn {
+  position: fixed;
+  top: 2vh;
+  left: 43vw;
+}
+.admin-guide {
+  text-decoration: none;
+ color: white;
+  font-size: 24px;
+}
+.hr-guide {
+  width: 2px;
+  height: 4vh;
+  background-color: #ddd;
+  border-color: #ddd;
+  position: fixed;
+  top: 1vh;
+  left: 49vw;
+}
+.other-guide-btn {
+  position: fixed;
+  top: 2vh;
+  left: 52vw;
+}
+.other-guide {
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+}
+
+/* This styling applied to the top pane when the left links are clicked in the guide page */
+.top-pane-2 {
+  width: 16.8vw;
+  height: 12vh;
+}
+.top-pane-2 > .logo > .logo-img {
+  width: 40px;
+}
+.top-pane-2 > .logo {
+  margin-left: 40px;
+}
+.top-pane-2 > .logo > .logo-heading {
+  font-size: 18px;
+}
+.top-pane-2 > .admin-guide-btn {
+  top: 8vh;
+  left: 2vw;
+}
+.top-pane-2 > .admin-guide-btn > .admin-guide {
+  font-size: 18px;
+}
+.top-pane-2 > .hr-guide {
+  width: 2px;
+  height: 3vh;
+  background-color: #ddd;
+  border-color: #ddd;
+  position: fixed;
+  top: 7vh;
+  left: 6vw;
+}
+.top-pane-2 > .other-guide-btn {
+  position: fixed;
+  top: 8vh;
+  left: 8vw;
+}
+.top-pane-2 > .other-guide-btn > .other-guide {
+  text-decoration: none;
+  /* color: white; */
+  font-size: 18px;
+}
+
+
+.list {
+  background-color: white;
+  margin-bottom: 0;
+}
+.list > li > a {
+  list-style-type: none;
+  color: black;
+  margin: 10px;
+  padding-left: 0;
+  margin-left: 0;
+  font-weight: bold;
+}
+.left-pane {
+  width: 15vw;
+  position: fixed;
+  top: 13vh;
+  left: 2vw;
+}
+.flex-guide {
+  margin-bottom: 20px;
+}
+.overview-guide  {
+color: black;
+font-weight: bold;
+margin-left: 20px;
+}
+.overview-guide:hover {
+  color: #fab95b;
+  text-decoration: underline;
+}
+.home-guide {
+  color: black;
+  font-weight: bold;
+  margin-left: 20px;
+}
+.home-guide:hover {
+  color: #fab95b;
+  text-decoration: underline;
+}
+.books-guide {
+  color: black;
+  font-weight: bold;
+  margin-left: 20px;
+}
+.books-guide:hover {
+  color: #fab95b;
+  text-decoration: underline;
+}
+.requests-guide {
+  color: black;
+  font-weight: bold;
+  margin-left: 20px;
+}
+.requests-guide:hover {
+  color: #fab95b;
+  text-decoration: underline;
+}
+.users-guide {
+  color: black;
+  font-weight: bold;
+  margin-left: 20px;
+}
+.users-guide:hover {
+  color: #fab95b;
+  text-decoration: underline;
+}
+.my-info-guide {
+  color: black;
+  font-weight: bold;
+  margin-left: 20px;
+}
+.my-info-guide:hover {
+  color: #fab95b;
+  text-decoration: underline;
+}
+.hr-content {
+  width: 1px;
+  height: 57vh;
+  background-color: #6c7b95;
+  border-color: #6c7b95;
+  position: fixed;
+  top: 10vh;
+  left: 16vw;
+}
+.content {
+  position: absolute;
+  top: 12vh;
+  left: 20vw;
+  margin-right: 35px;
+  text-align: justify;
+  line-height: 30px;
+}
+.separator {
+  width: 74vw;
+  height: 1px;
+  background-color: #6c7b95;
+  border-color: #6c7b95;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  border-style: none;
+}
+.guide-img {
+  width: 70vw;
+  height: 70vh;
+  border: 1px solid grey;
+  box-shadow: 4px 4px 5px #cccccc;
+}
+h4 {
+  margin-bottom: 20px;
+}
+.current-active {
+  color: #fab95b;
+}
+.help {
+  position: fixed;
+  top: 10vh;
+  left: 98.2vw;
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 20px;
+  padding-right: 20px;
+  color: black;
+}
+.help:hover {
+  background-color: black;
+}

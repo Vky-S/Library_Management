@@ -1,0 +1,98 @@
+<%- include("partials/header") -%>
+
+<div class="sidepane">
+  <div class="logo flex-item">
+    <img class="logo-img" src="/images/books_icon.png" alt="Books_Logo"><p class="logo-heading">LMS</p>
+  </div>
+  <div class="flex-item">
+  <a href="/admin/home" class="home"><i class="fas fa-home fa-sm icon"></i>Home</a>
+  </div>
+  <hr>
+  <div class="flex-item">
+    <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="books" class="books"><i data-value="books" class="fas fa-book fa-sm icon"></i>Books<i data-value="books" class="fas fa-sort-down fa-sm down-icon"></i></a>
+    <ul class="active">
+      <li><a href="/admin/add_book">Add Book</a></li>
+      <li><a href="/admin/issued_books">Issued Books</a></li>
+      <li><a href="/admin/all_books">All Books</a></li>
+    </ul>
+  </div>
+  <hr>
+  <div class="flex-item">
+    <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="request-book" class="request-book"><i data-value="request-book" class="fa fa-hand-o-up fa-sm icon" aria-hidden="true"></i>Requests<i data-value="request-book" class="fas fa-sort-down fa-sm down-icon"></i></a>
+    <ul class="active">
+      <li><a href="/admin/all_book_requests">All Book Requests</a></li>
+    </ul>
+  </div>
+<hr>
+<div class="flex-item">
+  <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="users" class="users"><i data-value="users" class="fas fa-users fa-sm icon"></i>Users<i data-value="users" class="fas fa-sort-down fa-sm down-icon"></i></a>
+  <ul>
+    <li><a href="/admin/all_users">All Users</a></li>
+    <li><a class="selected" href="/admin/add_user">Add a user</a></li>
+  </ul>
+</div>
+<hr>
+<div class="flex-item">
+  <a href="/admin/user_profile" class="user-info"><i class="fas fa-user-circle fa-sm icon"></i>My Info</a>
+</div>
+<hr>
+</div>
+<div class="copyright">
+  &copy; 2020
+</div>
+<hr class="hr-rule">
+<div class="log-out" onclick="location.href = '/logout'">
+  <a class="log-out-text" href="/logout"><i class="fas fa-sign-out-alt icon-lg"></i>Logout</a>
+</div>
+  <a href="/guide/admin#add-user-guide" class="help"><i class="fas fa-question fa-lg"></i></a>
+
+<div class="add-user-form">
+  <% if(error) { %>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <% if(error.length < 21) { %>
+      <%  email= user[0].email; %>
+      <strong>Error!</strong> <%= error %> with the email address - <%= email %>.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    <% } else { %>
+      <strong>Error!</strong> <%= error %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    <% } %>
+</div>
+  <% } %>
+
+  <form action="/admin/add_user" method="POST">
+ <div class="form-group col-md-4">
+   <label for="inputText4">First Name</label>
+   <input type="text" value="<%= user.fname %>" name="fname" class="form-control" autocomplete="off" id="inputText4" required oninvalid="this.setCustomValidity('Please enter a valid First Name!')" oninput="this.setCustomValidity('')">
+ </div>
+ <div class="form-group col-md-4">
+   <label for="inputText4">Last Name</label>
+   <input type="text" value="<%= user.lname %>" name="lname" class="form-control" autocomplete="off" id="inputText4" required oninvalid="this.setCustomValidity('Please enter a valid Last Name!')" oninput="this.setCustomValidity('')">
+ </div>
+ <div class="form-group col-md-4">
+   <label for="inputText4">Email Address</label>
+   <input type="email" value="<%= user.email %>" name="email" class="form-control" autocomplete="off" id="inputText4" required oninvalid="this.setCustomValidity('Please enter a valid Email Address!')" oninput="this.setCustomValidity('')">
+ </div>
+ <div class="form-group col-md-4">
+   <label for="inputText4">Password</label>
+   <input type="text" disabled value="password1" name="password" class="form-control" autocomplete="off" id="inputText4">
+   <input type="hidden" value="password1" name="passwordHidden" class="form-control" autocomplete="off" id="inputText4">
+ </div>
+ <div class="form-group col-md-4">
+  <label for="exampleFormControlSelect1">Member Type</label>
+  <select name="memberType" class="form-control member-type-adduser" id="exampleFormControlSelect1" required oninvalid="this.setCustomValidity('Please choose a Member Type!')" oninput="this.setCustomValidity('')">
+    <option value="">None</option>
+    <option value="Student">Student</option>
+    <option value="Teacher">Teacher</option>
+    <option value="Admin">Admin</option>
+  </select>
+</div>
+ <button type="submit" class="btn btn-outline-primary btn-block btn-lg add-user">Add User</button>
+</form>
+</div>
+
+<%- include("partials/footer") -%>

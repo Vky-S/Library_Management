@@ -1,0 +1,26 @@
+<%- include("partials/header") %>
+
+<div class="other-login-redirect">
+  <form action="/other_login" method="POST">
+    <div class="form-group col-md-4">
+      <label for="inputText4">Full Name</label>
+      <input type="text" value="<%= formData.first_name + " " + formData.last_name %>" required oninvalid="this.setCustomValidity('Please enter a valid First Name!')" oninput="this.setCustomValidity('')" autocomplete="off" name="fname" class="form-control" id="inputText4" aria-describedby="textHelp">
+    </div>
+ <div class="form-group">
+  <label for="exampleFormControlSelect1">Member Type</label>
+  <select name="memberType" class="form-control member-type member-type-adduser-reg" required oninvalid="this.setCustomValidity('Please choose a Member Type!')" oninput="this.setCustomValidity('')" id="exampleFormControlSelect1">
+    <option value="">None</option>
+    <option value="Student">Student</option>
+    <option value="Teacher">Teacher</option>
+    <option value="Admin">Admin</option>
+  </select>
+</div>
+<input type="hidden" name="googleId" value="<%= formData.googleId %>">
+<input type="hidden" name="twitterId" value="<%= formData.twitterId %>">
+<input type="hidden" name="faceBookId" value="<%= formData.faceBookId %>">
+
+ <button type="submit" class="btn btn-primary btn-block btn-lg log-btn">Update Profile</button>
+</form>
+</div>
+
+<%- include("partials/footer") %>

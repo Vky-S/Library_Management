@@ -1,0 +1,99 @@
+<%- include("partials/header") -%>
+
+  <div class="sidepane">
+    <div class="logo flex-item">
+      <img class="logo-img" src="/images/books_icon.png" alt="Books_Logo"><p class="logo-heading">LMS</p>
+    </div>
+    <div class="flex-item">
+    <a href="/home" class="home"><i class="fas fa-home fa-sm icon"></i>Home</a>
+    </div>
+    <hr>
+    <div class="flex-item">
+      <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="books" class="books"><i data-value="books" class="fas fa-book fa-sm icon"></i>Books<i data-value="books" class="fas fa-sort-down fa-sm down-icon"></i></a>
+      <ul class="active">
+        <li><a href="/all_books">All Books</a></li>
+        <li><a href="/my_books">My Books</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div class="flex-item">
+      <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="request-book" class="request-book"><i data-value="request-book" class="fa fa-hand-o-up fa-sm icon" aria-hidden="true"></i>Requests<i data-value="request-book" class="fas fa-sort-down fa-sm down-icon"></i></a>
+      <ul class="active">
+        <li><a href="/request_a_book">Request a Book</a></li>
+        <li><a href="/view_requests">View Requests</a></li>
+      </ul>
+    </div>
+  <hr>
+  <div class="flex-item">
+    <a href="/user_profile" class="user-info selected"><i class="fas fa-user-circle fa-sm icon"></i>My Info</a>
+  </div>
+  <hr>
+  </div>
+  <div class="copyright">
+    &copy; 2020
+  </div>
+<hr class="hr-rule">
+<div class="log-out" onclick="location.href = '/logout'">
+  <a class="log-out-text" href="/logout"><i class="fas fa-sign-out-alt icon-lg"></i>Logout</a>
+  <a href="/guide/others#my-info-guide" class="help"><i class="fas fa-question fa-lg"></i></a>
+
+
+</div>
+<% let title; %>
+<% if(user.email === ""){ %>
+  <% title = "Linked login through Google/Facebook/Twitter"; %>
+<% } else { %>
+  <% title = ""; %>
+  <% } %>
+
+  <% if(error) { %>
+    <div class="alert alert-warning alert-dismissible fade show password-alert" role="alert">
+    <strong>Error!</strong> <%= error %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <% } %>
+  <div class="user-information">
+    <form>
+   <div class="form-group col-md-4">
+     <label for="inputText4">User Name</label>
+     <input type="text" value="<%= user.first_name + " " + user.last_name %>" disabled class="form-control" id="inputText4">
+   </div>
+     <div class="form-group col-md-4">
+       <label for="inputEmail4">Email Address</label>
+       <input type="text" title="<%= title %>" value="<%= user.email %>" disabled class="form-control" id="inputEmail4">
+     </div>
+   <div class="form-group col-md-4">
+     <label for="inputText4">Member Type</label>
+     <input type="text" value="<%= user.member_type %>"  disabled class="form-control" id="inputText4">
+   </div>
+   <div class="form-group col-md-4">
+     <label for="inputText4">Logged In Time</label>
+     <input type="text" value="<%= user.loggedInTime %>" disabled class="form-control" id="inputText4">
+   </div>
+   <% if(title === ""){ %>
+     <div class="form-group col-md-4">
+       <a href="javascript:void(0)" class="change-password-text">Change Password</a>
+     </div>
+   <% } %>
+  </form>
+  <form class="change_password show-form" action="/user_profile/change_password" method="POST">
+      <div class="form-group col-md-4">
+        <label for="inputText4">Existing Password</label>
+        <input type="text" autocomplete="off" title="Enter your existing password" name="old_password" class="form-control" id="inputText4" required>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputText4">New Password</label>
+        <input type="text" autocomplete="off" title="Enter your new password" name="new_password"  class="form-control" id="inputText4" required>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputText4">Confirm New Password</label>
+        <input type="text" autocomplete="off" title="Enter your new password" name="confirm_new_password"  class="form-control" id="inputText4" required>
+      </div>
+      <button type="submit" class="btn btn-outline-primary btn-block btn-lg add-user">Submit</button>
+  </form>
+  </div>
+
+
+<%- include("partials/footer") -%>

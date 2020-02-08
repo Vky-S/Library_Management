@@ -1,0 +1,69 @@
+<%- include("partials/header") -%>
+<div class="sidepane">
+  <div class="logo flex-item">
+    <img class="logo-img" src="/images/books_icon.png" alt="Books_Logo"><p class="logo-heading">LMS</p>
+  </div>
+  <div class="flex-item">
+  <a href="/home" class="home"><i class="fas fa-home fa-sm icon"></i>Home</a>
+  </div>
+  <hr>
+  <div class="flex-item">
+    <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="books" class="books"><i data-value="books" class="fas fa-book fa-sm icon"></i>Books<i data-value="books" class="fas fa-sort-down fa-sm down-icon"></i></a>
+    <ul class="active">
+      <li><a href="/all_books">All Books</a></li>
+      <li><a href="/my_books">My Books</a></li>
+    </ul>
+  </div>
+  <hr>
+  <div class="flex-item">
+    <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="request-book" class="request-book"><i data-value="request-book" class="fa fa-hand-o-up fa-sm icon" aria-hidden="true"></i>Requests<i data-value="request-book" class="fas fa-sort-down fa-sm down-icon"></i></a>
+    <ul>
+      <li><a href="/request_a_book">Request a Book</a></li>
+      <li><a class="selected" href="/view_requests">View Requests</a></li>
+    </ul>
+  </div>
+<hr>
+<div class="flex-item">
+  <a href="/user_profile" class="user-info"><i class="fas fa-user-circle fa-sm icon"></i>My Info</a>
+</div>
+<hr>
+</div>
+<div class="copyright">
+  &copy; 2020
+</div>
+<hr class="hr-rule">
+<div class="log-out" onclick="location.href = '/logout'">
+  <a class="log-out-text" href="/logout"><i class="fas fa-sign-out-alt icon-lg"></i>Logout</a>
+</div>
+<a href="/guide/others#all-requests-guide" class="help"><i class="fas fa-question fa-lg"></i></a>
+
+
+
+<div class="requests-table">
+  <table>
+    <tr>
+      <th>Book Name</th>
+      <th>Author Name</th>
+      <th>Requests Logged Date</th>
+      <th>Request Status</th>
+    </tr>
+    <% if(allRequests){ %>
+    <% allRequests.forEach((request) => { %>
+      <% const date = request.request_logged_date; %>
+      <% const requestDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear(); %>
+      <tr>
+        <td><p class="book-name-request"><%= request.book_name %></p></td>
+        <td><p class="author-name-request"><%= request.author_name %></p></td>
+        <td><p class="request-logged-date"><%= requestDate %></p></td>
+        <td><p class="request-status"><%= request.request_status %></p></td>
+      </tr>
+   <%  }); %>
+  <% } else { %>
+    <div class="warning-text">
+      No Requests found!
+    </div>
+  <% } %>
+  </table>
+</div>
+
+<%- include("partials/footer") -%>

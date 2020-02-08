@@ -1,0 +1,81 @@
+<%- include("partials/header") -%>
+
+<div class="sidepane">
+  <div class="logo flex-item">
+    <img class="logo-img" src="/images/books_icon.png" alt="Books_Logo"><p class="logo-heading">LMS</p>
+  </div>
+  <div class="flex-item">
+  <a href="/admin/home" class="home"><i class="fas fa-home fa-sm icon"></i>Home</a>
+  </div>
+  <hr>
+  <div class="flex-item">
+    <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="books" class="books"><i data-value="books" class="fas fa-book fa-sm icon"></i>Books<i data-value="books" class="fas fa-sort-down fa-sm down-icon"></i></a>
+    <ul class="active">
+      <li><a href="/admin/add_book">Add Book</a></li>
+      <li><a href="/admin/issued_books">Issued Books</a></li>
+      <li><a href="/admin/all_books">All Books</a></li>
+    </ul>
+  </div>
+  <hr>
+  <div class="flex-item">
+    <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="request-book" class="request-book"><i data-value="request-book" class="fa fa-hand-o-up fa-sm icon" aria-hidden="true"></i>Requests<i data-value="request-book" class="fas fa-sort-down fa-sm down-icon"></i></a>
+    <ul >
+      <li><a class="selected" href="/admin/all_book_requests">All Book Requests</a></li>
+    </ul>
+  </div>
+<hr>
+<div class="flex-item">
+  <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="users" class="users"><i data-value="users" class="fas fa-users fa-sm icon"></i>Users<i data-value="users" class="fas fa-sort-down fa-sm down-icon"></i></a>
+  <ul class="active">
+    <li><a href="/admin/all_users">All Users</a></li>
+    <li><a href="/admin/add_user">Add a user</a></li>
+  </ul>
+</div>
+<hr>
+<div class="flex-item">
+  <a href="/admin/user_profile" class="user-info"><i class="fas fa-user-circle fa-sm icon"></i>My Info</a>
+</div>
+<hr>
+</div>
+<div class="copyright">
+  &copy; 2020
+</div>
+<hr class="hr-rule">
+<div class="log-out" onclick="location.href = '/logout'">
+  <a class="log-out-text" href="/logout"><i class="fas fa-sign-out-alt icon-lg"></i>Logout</a>
+</div>
+  <a href="/guide/admin#all-requests-guide" class="help"><i class="fas fa-question fa-lg"></i></a>
+
+<div class="pending-requests">
+  <form class="pending" action="/admin/pending_requests" method="POST">
+    <td><button type="submit" class="pending-request-button" name="pending_request">Show Pending Book Requests</button></td>
+  </form>
+</div>
+
+<div class="all-book-requests-table">
+  <table>
+    <tr>
+      <th>Book Name</th>
+      <th>Author Name</th>
+      <th>User Name</th>
+      <th>Status</th>
+    </tr>
+    <% requests.forEach((request) => { %>
+      <tr>
+        <form action="/admin/all_book_requests" method="POST">
+        <td><p class="book-name-list"><%= request.book_name %></p></td>
+        <td><p class="author-name-list"><%= request.author_name %></p></td>
+        <td><p><%= request.user_name %></p></td>
+        <% const bookDetails =[request.book_name, request.author_name, request.user_name]; %>
+        <% if(request.request_status === "Book Added") { %>
+          <td><button disabled title="Book Added to the Library" type="submit" value="<%= bookDetails %>" id="disabledbtn" class="book-added-button" name="book_added">Book Added</button></td>
+        <% } else { %>
+          <td><button type="submit" value="<%= bookDetails %>" class="book-added-button" name="book_added">Book Added</button></td>
+        <% } %>
+        </form>
+      </tr>
+    <% }); %>
+  </table>
+</div>
+
+<%- include("partials/footer") -%>

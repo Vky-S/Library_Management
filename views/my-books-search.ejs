@@ -1,0 +1,89 @@
+<%- include("partials/header") %>
+
+<div class="outer-elements">
+<div class="sidepane">
+  <div class="logo flex-item">
+    <img class="logo-img" src="/images/books_icon.png" alt="Books_Logo"><p class="logo-heading">LMS</p>
+  </div>
+  <div class="flex-item">
+  <a href="/home" class="home"><i class="fas fa-home fa-sm icon"></i>Home</a>
+  </div>
+  <hr>
+  <div class="flex-item">
+    <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="books" class="books"><i data-value="books" class="fas fa-book fa-sm icon"></i>Books<i data-value="books" class="fas fa-sort-down fa-sm down-icon"></i></a>
+    <ul class="active">
+      <li><a href="/all_books">All Books</a></li>
+      <li><a href="/my_books">My Books</a></li>
+    </ul>
+  </div>
+  <hr>
+  <div class="flex-item">
+    <a href="javascript:void(0)" onclick="showSubMenu(event)" data-value="request-book" class="request-book"><i data-value="request-book" class="fa fa-hand-o-up fa-sm icon" aria-hidden="true"></i>Requests<i data-value="request-book" class="fas fa-sort-down fa-sm down-icon"></i></a>
+    <ul class="active">
+      <li><a href="/request_a_book">Request a Book</a></li>
+      <li><a href="/view_requests">View Requests</a></li>
+    </ul>
+  </div>
+<hr>
+<div class="flex-item">
+  <a href="/user_profile" class="user-info"><i class="fas fa-user-circle fa-sm icon"></i>My Info</a>
+</div>
+<hr>
+</div>
+<div class="copyright">
+  &copy; 2020
+</div>
+<div class="log-out" onclick="location.href = '/logout'">
+  <a class="log-out-text" href="/logout"><i class="fas fa-sign-out-alt icon-lg"></i>Logout</a>
+</div>
+</div>
+<div class="books-table">
+  <table>
+    <tr>
+      <th>Book Name</th>
+      <th>Author Name</th>
+      <th>Issued Date</th>
+      <th>Return Date</th>
+      <th>Price</th>
+    </tr>
+<% if(searchedBooks){ %>
+  <% let bookAdded = false; %>
+  <% searchedBooks.forEach( (book) => { %>
+    <% if(book.book_name.toLowerCase().includes(bookName.toLowerCase())){ %>
+      <% const issuedDate = book.issued_date.getDate() + "/" + (book.issued_date.getMonth() + 1) + "/" + book.issued_date.getFullYear() %>
+      <% const returnDate = book.return_date.getDate() + "/" + (book.return_date.getMonth() + 1) + "/" + book.return_date.getFullYear() %>
+      <tr>
+        <td><p class="book-name-list"><%= book.book_name %></p></td>
+        <td><p class="author-name-list"><%= book.author_name %></p></td>
+        <td><p><%= issuedDate %></p></td>
+        <td><p><%= returnDate %></p></td>
+        <td><p><%= book.price %></p></td>
+      </tr>
+      <% bookAdded = true; %>
+    <% } %>
+  <% }); %>
+  <% if(bookAdded === false){ %>
+    <div class="warning-text">
+      No Books found!
+    </div>
+  <% } %>
+<% } else { %>
+  <div class="warning-text">
+    No Books found!
+  </div>
+<% } %>
+</table>
+</div>
+
+<div class="outer-div">
+</div>
+<hr class="hr-rule">
+<div class="return-to-books">
+<button class="return-to-books-button" onclick="location.href='/my_books'" type="submit" name="return-to-books"><i class="fas fa-arrow-circle-left left-arrow-icon"></i> Return to My Books</button>
+</div>
+
+
+
+
+
+<%- include("partials/footer") %>
