@@ -228,6 +228,7 @@ app.get("/auth/google",
 app.get("/auth/google/home",
   passport.authenticate("google", { failureRedirect: "/login"}),
   function(req, res) {
+    console.log("Google Authenticated");
     const userData = req.user;
     let data;
     if(Array.isArray(userData)) {
