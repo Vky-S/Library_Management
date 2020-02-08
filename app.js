@@ -107,7 +107,7 @@ const BookRequest = mongoose.model('BookRequest', bookRequests);
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_CLIENT_ID,
     clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/facebook/home",
+    callbackURL: "https://lib-mgmt-system.herokuapp.com/auth/facebook/home",
     profileFields: ["email", "first_name", "last_name"]
   },
   function(accessToken, refreshToken, profile, done) {
@@ -128,7 +128,7 @@ app.get("/auth/facebook/home",
 passport.use(new TwitterStrategy({
     consumerKey: process.env.TWITTER_CONSUMER_KEY,
     consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-    callbackURL: "http://localhost:3000/auth/twitter/home"
+    callbackURL: "https://lib-mgmt-system.herokuapp.com/auth/twitter/home"
   },
   function(token, tokenSecret, profile, done) {
     User.find({twitterId: profile.id}, function(err, foundUser){
@@ -190,7 +190,7 @@ app.get("/auth/twitter/home",
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/home",
+    callbackURL: "https://lib-mgmt-system.herokuapp.com/auth/google/home",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, done) {
@@ -275,7 +275,7 @@ app.get("/auth/google/home",
          res.redirect("/login");
        }, 500);
   });
-  
+
 app.get("/home", function(req, res){
   if(req.isAuthenticated()){
     const homePage = {
