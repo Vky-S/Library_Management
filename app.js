@@ -931,12 +931,12 @@ app.post("/login", function(req, res){
               console.log(err);
             } else {
               passport.authenticate("local", function(err, user, info) {
-                  if (err) { return next(err) }
+                  if (err) { console.log(err); }
                   if (!user) {
               return res.render("login", { error: "Incorrect Password" });
               }
                 req.logIn(user, function(err) {
-                    if (err) { return next(err); }
+                    if (err) { console.log(err); }
                       return res.redirect("/admin/home");
                       });
                       })(req, res);
@@ -944,12 +944,12 @@ app.post("/login", function(req, res){
           });
         } else {
           passport.authenticate("local", function(err, user, info) {
-              if (err) { return next(err) }
+              if (err) { console.log(err); }
               if (!user) {
           return res.render("login", { error: "Incorrect Password" })
           }
             req.logIn(user, function(err) {
-                if (err) { return next(err); }
+                if (err) { console.log(err); }
                   return res.redirect("/home");
                   });
                   })(req, res);
