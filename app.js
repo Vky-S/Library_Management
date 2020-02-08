@@ -229,32 +229,33 @@ app.get("/auth/google/home",
   passport.authenticate("google", { failureRedirect: "/login"}),
   function(req, res) {
     console.log("Google Authenticated");
-    const userData = req.user;
-    let data;
-    if(Array.isArray(userData)) {
-       data = userData[0];
-    } else {
-      data = userData;
-    }
-    User.find({
-      googleId: data.googleId
-    }, function(err, result){
-      if(err){
-        console.log(err);
-      } else {
-        if(result.length > 0) {
-          if(result[0].member_type){
-            if(result[0].member_type === "Admin") {
-              res.redirect("/admin/home");
-            } else {
-              res.redirect("/home");
-            }
-          } else {
-            res.render("other-login-redirect",{formData: data});
-          }
-        }
-      }
-    });
+    res.redirect("/home");
+    // const userData = req.user;
+    // let data;
+    // if(Array.isArray(userData)) {
+    //    data = userData[0];
+    // } else {
+    //   data = userData;
+    // }
+    // User.find({
+    //   googleId: data.googleId
+    // }, function(err, result){
+    //   if(err){
+    //     console.log(err);
+    //   } else {
+    //     if(result.length > 0) {
+    //       if(result[0].member_type){
+    //         if(result[0].member_type === "Admin") {
+    //           res.redirect("/admin/home");
+    //         } else {
+    //           res.redirect("/home");
+    //         }
+    //       } else {
+    //         res.render("other-login-redirect",{formData: data});
+    //       }
+    //     }
+    //   }
+    // });
   });
 
   // Get Requests
