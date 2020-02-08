@@ -277,6 +277,22 @@ app.get("/auth/google/home",
        }, 500);
   });
 
+  app.get("/guide/others", function(req, res){
+    if(req.isAuthenticated()){
+      res.render("others-guide");
+    } else {
+      res.redirect("/login");
+    }
+  });
+
+  app.get("/guide/admin", function(req, res){
+    if(req.isAuthenticated()){
+      res.render("admin-guide");
+    } else {
+      res.redirect("/login");
+    }
+  });
+
 app.get("/home", function(req, res){
   if(req.isAuthenticated()){
     const homePage = {
