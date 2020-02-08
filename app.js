@@ -22,16 +22,16 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(flash());
 app.set("trust proxy", 1);
 
-const options = {
-  expires:  60 * 60 * 12,
-  checkperiod: 10 * 60
-};
+// const options = {
+//   expires:  60 * 60 * 12,
+//   checkperiod: 10 * 60
+// };
 
 app.use(session({
   secret: process.env.SECRET,
   resave: false,
-  saveUninitialized: true,
-  store: new MemoryStore(options)
+  saveUninitialized: true
+  // store: new MemoryStore(options)
 }));
 
 app.use(passport.initialize());
@@ -108,7 +108,7 @@ const BookRequest = mongoose.model('BookRequest', bookRequests);
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_CLIENT_ID,
     clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-    callbackURL: "https://lib-mgmt-system.herokuapp.com/auth/facebook/home",
+    callbackURL: "/auth/facebook/home",
     profileFields: ["email", "first_name", "last_name"]
   },
   function(accessToken, refreshToken, profile, done) {
@@ -129,7 +129,7 @@ app.get("/auth/facebook/home",
 passport.use(new TwitterStrategy({
     consumerKey: process.env.TWITTER_CONSUMER_KEY,
     consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-    callbackURL: "https://lib-mgmt-system.herokuapp.com/auth/twitter/home"
+    callbackURL: "/auth/twitter/home"
   },
   function(token, tokenSecret, profile, done) {
     User.find({twitterId: profile.id}, function(err, foundUser){
@@ -191,7 +191,7 @@ app.get("/auth/twitter/home",
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://lib-mgmt-system.herokuapp.com/auth/google/home",
+    callbackURL: "/auth/google/home",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, done) {
@@ -909,15 +909,12 @@ app.post("/login", function(req, res){
   const data = req.body;
   const userInfo = new User({username: lodash.trim(data.email), password: data.password});
   if(data.email && data.password){
-    console.log("BEFORE FIND");
     User.find({
       email: lodash.trim(data.email)
     }, function(err, result){
       if(err) {
         console.log(err);
-        console.log("FIND ERROR");
       } else {
-        console.log("FIND SUCCESS");
         console.log(result);
         if(result.length > 0 ){
         const member_Type = result[0].member_type;
@@ -928,20 +925,16 @@ app.post("/login", function(req, res){
         }, function(err){
           if(err){
             console.log(err);
-            console.log("UPDATE ONE ERROR");
           }
         });
         if(member_Type === "Admin") {
           req.login(userInfo, function(err){
             if (err) {
               console.log(err);
-              console.log("REQ LOGIN ERROR");
             } else {
-              console.log("PASSPORT AUTHENTICATE");
               passport.authenticate("local", function(err, user, info) {
                   if (err) {
                     console.log(err);
-                    console.log("AUTHENTICATE ERROR");
                   }
                   if (!user) {
               return res.render("login", { error: "Incorrect Password" });
@@ -949,7 +942,6 @@ app.post("/login", function(req, res){
                 req.logIn(user, function(err) {
                     if (err) {
                       console.log(err);
-                      console.log("REQ LOGIN ERROR");
                     }
                       return res.redirect("/admin/home");
                       });
@@ -957,7 +949,6 @@ app.post("/login", function(req, res){
             }
           });
         } else {
-          console.log("MEMBER TYPE NOT ADMIN");
           passport.authenticate("local", function(err, user, info) {
               if (err) { console.log(err); }
               if (!user) {
