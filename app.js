@@ -112,6 +112,7 @@ passport.use(new FacebookStrategy({
     profileFields: ["email", "first_name", "last_name"]
   },
   function(accessToken, refreshToken, profile, done) {
+    console.log(profile);
     User.find({faceBookId: profile.id}, function(err, foundUser){
       if(err){
         console.log(err);
