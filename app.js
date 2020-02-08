@@ -906,16 +906,19 @@ if(data.password !== data.confirm_password) {
 });
 
 app.post("/login", function(req, res){
-  console.log(req);
   const data = req.body;
   const userInfo = new User({username: lodash.trim(data.email), password: data.password});
   if(data.email && data.password){
+    console.log("BEFORE FIND");
     User.find({
       email: lodash.trim(data.email)
     }, function(err, result){
       if(err) {
         console.log(err);
+        console.log("FIND ERROR");
       } else {
+        console.log("FIND SUCCESS");
+        console.log(result);
         if(result.length > 0 ){
         const member_Type = result[0].member_type;
         User.updateOne({
@@ -925,26 +928,36 @@ app.post("/login", function(req, res){
         }, function(err){
           if(err){
             console.log(err);
+            console.log("UPDATE ONE ERROR");
           }
         });
         if(member_Type === "Admin") {
           req.login(userInfo, function(err){
             if (err) {
               console.log(err);
+              console.log("REQ LOGIN ERROR");
             } else {
+              console.log("PASSPORT AUTHENTICATE");
               passport.authenticate("local", function(err, user, info) {
-                  if (err) { console.log(err); }
+                  if (err) {
+                    console.log(err);
+                    console.log("AUTHENTICATE ERROR");
+                  }
                   if (!user) {
               return res.render("login", { error: "Incorrect Password" });
               }
                 req.logIn(user, function(err) {
-                    if (err) { console.log(err); }
+                    if (err) {
+                      console.log(err);
+                      console.log("REQ LOGIN ERROR");
+                    }
                       return res.redirect("/admin/home");
                       });
                       })(req, res);
             }
           });
         } else {
+          console.log("MEMBER TYPE NOT ADMIN");
           passport.authenticate("local", function(err, user, info) {
               if (err) { console.log(err); }
               if (!user) {
