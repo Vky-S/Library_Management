@@ -12,11 +12,12 @@ const flash = require("connect-flash");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const TwitterStrategy = require("passport-twitter").Strategy;
 const FacebookStrategy = require("passport-facebook").Strategy;
-
+const path = require("path");
 const app = express();
 
 app.set("view engine", "ejs");
-app.use(express.static("public"));
+process.env.PWD = process.cwd();
+app.use(express.static(path.join(process.env.PWD, "public")));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(flash());
 app.set("trust proxy", 1);
@@ -228,34 +229,32 @@ app.get("/auth/google",
 app.get("/auth/google/home",
   passport.authenticate("google", { failureRedirect: "/login"}),
   function(req, res) {
-    console.log("Google Authenticated");
-    res.redirect("/home");
-    // const userData = req.user;
-    // let data;
-    // if(Array.isArray(userData)) {
-    //    data = userData[0];
-    // } else {
-    //   data = userData;
-    // }
-    // User.find({
-    //   googleId: data.googleId
-    // }, function(err, result){
-    //   if(err){
-    //     console.log(err);
-    //   } else {
-    //     if(result.length > 0) {
-    //       if(result[0].member_type){
-    //         if(result[0].member_type === "Admin") {
-    //           res.redirect("/admin/home");
-    //         } else {
-    //           res.redirect("/home");
-    //         }
-    //       } else {
-    //         res.render("other-login-redirect",{formData: data});
-    //       }
-    //     }
-    //   }
-    // });
+    const userData = req.user;
+    let data;
+    if(Array.isArray(userData)) {
+       data = userData[0];
+    } else {
+      data = userData;
+    }
+    User.find({
+      googleId: data.googleId
+    }, function(err, result){
+      if(err){
+        console.log(err);
+      } else {
+        if(result.length > 0) {
+          if(result[0].member_type){
+            if(result[0].member_type === "Admin") {
+              res.redirect("/admin/home");
+            } else {
+              res.redirect("/home");
+            }
+          } else {
+            res.render("other-login-redirect",{formData: data});
+          }
+        }
+      }
+    });
   });
 
   // Get Requests
