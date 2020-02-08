@@ -906,6 +906,7 @@ if(data.password !== data.confirm_password) {
 });
 
 app.post("/login", function(req, res){
+  console.log(req);
   const data = req.body;
   const userInfo = new User({username: lodash.trim(data.email), password: data.password});
   if(data.email && data.password){
