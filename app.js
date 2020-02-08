@@ -122,7 +122,28 @@ passport.use(new FacebookStrategy({
 app.get("/auth/facebook", passport.authenticate("facebook"));
 
 app.get("/auth/facebook/home",
-  passport.authenticate("facebook",{successRedirect: "/home",failureRedirect: "/login" }));
+  passport.authenticate("facebook", {failureRedirect: "/login" }), function(req, res){
+      const data = req.user;
+        User.find({
+          faceBookId: data.faceBookId
+        }, function(err, result){
+          if(err){
+            console.log(err);
+          } else {
+            if(result.length > 0) {
+              if(result[0].member_type){
+                if(result[0].member_type === "Admin") {
+                  res.redirect("/admin/home");
+                } else {
+                  res.redirect("/home");
+                }
+              } else {
+                res.render("other-login-redirect",{formData: data});
+              }
+            }
+          }
+        });
+    });
 
 
 /* Twitter Login */
