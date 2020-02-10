@@ -1343,3 +1343,374 @@ h4 {
 .help:hover {
   background-color: black;
 }
+/* Styles for Other Screens */
+@media screen and (min-width:1500px) {
+/* Styling for Login and Register Form */
+.outer-container {
+position: relative;
+background-color: white;
+width: 1000px;
+height: 400px;
+top: 150px;
+left: 25%;
+}
+/* Sidepane */
+.sidepane {
+  width: 230px;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: center;
+  padding: 0;
+  z-index: 500;
+  position: fixed;
+}
+.logo-img {
+  width: 85px;
+  display: inline-block;
+}
+.copyright {
+  color: grey;
+  position: fixed;
+  top: 96%;
+  left: 3.6%;
+  z-index: 600;
+}
+/* Logout Button Styling */
+.log-out {
+  z-index: 620;
+  position: fixed;
+  top: 92%;
+  left: 2%;
+  border: 1px solid #ddd;
+  padding: 4px 8px 4px 10px;
+  border-radius: 20px;
+  text-decoration: none;
+  width: 120px;
+  height: 35px;
+}
+/* Search Bar Styles */
+.search-bar {
+  position: absolute;
+  top: 3%;
+  left: 79%;
+  margin-bottom: -100px;
+  z-index: 4;
+}
+.search-text {
+  font-size: 13px;
+  width: 200px;
+  border: none;
+  border-bottom: 1px solid grey;
+  z-index: 4;
+}
+/* hr rule*/
+.hr-rule {
+  position: absolute;
+  top: 60px;
+  left: 235px;
+  width: 80%;
+  border-bottom: 0.6px solid grey;
+  z-index: 4;
+}
+/* View Styling */
+.view {
+  position: absolute;
+  top: 30px;
+  left: 250px;
+  z-index: 4;
+}
+.l-icon {
+  margin-right: 10px;
+  color: black;
+}
+.l-icon:hover {
+  color: #ffba5a;
+}
+.selected {
+  color:#ffba5a;
+}
+/* Help icon styling */
+.current-active {
+  color: #fab95b;
+}
+.help {
+  position: fixed;
+  top: 10vh;
+  left: 98.6vw;
+}
+/* Admin Home Page Styling */
+.dashboard {
+  width: 80%;
+  height: 690px;
+  position: absolute;
+  top: 100px;
+  left: 250px;
+  z-index: 200;
+}
+.all-users {
+  width: 46%;
+  height: 300px;
+  position: absolute;
+  left: 30px;
+  top: 20px;
+}
+.all-users table tr td {
+  padding: 4px;
+}
+.all-users:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+.all-users table, .book-requests table, .issued-books table, .all-books table  {
+ width: 100%;
+}
+.all-users table tr , .book-requests table tr, .issued-books table tr, .all-books table tr {
+  border-bottom: 1px solid #ddd;
+}
+.all-users table tr th , .book-requests table tr th, .issued-books table tr th, .all-books table tr th {
+  padding-right: 20px;
+  border-width: thin;
+  background-color: #e2c275;
+  padding-top: 5px;
+  padding-left: 5px;
+}
+.all-users table tr td , .book-requests table tr td, .issued-books table tr td, .all-books table tr td {
+  padding-left: 5px;
+}
+
+.book-requests {
+  width: 46%;
+  height: 300px;
+  position: absolute;
+  left: 55%;
+  top: 20px;
+  bottom: 345px;
+}
+.book-requests table tr td {
+  padding: 4px;
+}
+.book-requests:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+.issued-books {
+  width: 46%;
+  height: 300px;
+  position: absolute;
+  top: 370px;
+  left: 30px;
+}
+.issued-books table tr td {
+  padding: 4px;
+}
+.issued-books:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+.all-books {
+  width: 46%;
+  height: 300px;
+  position: absolute;
+  left: 55%;
+  top: 370px;
+}
+.all-books:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+.hr-1 {
+  width: 2px;
+  height: 320px;
+  background-color: #7d7d7d;
+  position: absolute;
+  top: 110px;
+  left: 54%;
+}
+.hr-2 {
+  width: 2px;
+  height: 320px;
+  background-color: #7d7d7d;
+  position: absolute;
+  top: 460px;
+  left: 54%;
+}
+.hr-3 {
+  width: 740px;
+  height: 2px;
+  background-color: #7d7d7d;
+  position: absolute;
+  top: 445px;
+  left: 14.6%;
+}
+.hr-4 {
+  width: 740px;
+  height: 2px;
+  background-color: #7d7d7d;
+  position: absolute;
+  top: 445px;
+  left: 55%;
+}
+/* Grid View - Books */
+.grid-parent {
+  display: inline-grid;
+  grid-template-columns: repeat(5, 230px);
+  grid-gap: 3% 6%;
+  align-items: center;
+  position: absolute;
+  top: 100px;
+  left: 270px;
+  width: 80vw;
+  z-index: -2;
+  margin-bottom: 30px;
+}
+/* Issued Books Table and All Books Table */
+.issued-books-table, .all-books-table {
+  position: absolute;
+  top: 105px;
+  left: 13%;
+  padding: 0;
+  margin: 0;
+  width: 80vw;
+}
+.issued-books-table table tr th, .all-books-table table tr th {
+  padding-right: 200px;
+  padding-left: 5px;
+  padding-bottom: 10px;
+  border-bottom: 0.2px solid #ddd;
+  border-width: thin;
+  background-color: #eae9e9;
+  padding-top: 5px;
+}
+.issued-books-table table tr th, .all-books-table table tr th {
+    position: sticky;
+    top: 95px;
+}
+/* All Book Requests Table */
+.all-book-requests-table {
+  position: absolute;
+  top: 100px;
+  left: 240px;
+  padding: 0;
+  margin: 0;
+  width: 80vw;
+}
+.all-book-requests-table table tr th {
+  padding-right: 290px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  border-bottom: 0.2px solid #ddd;
+  border-width: thin;
+  background-color: #eae9e9;
+  padding-top: 5px;
+  position: sticky;
+  top: 80px;
+}
+.all-book-requests-table table tr td {
+  padding-left: 15px;
+}
+/* All Users Table Styling */
+.all-users-table {
+  width: 80vw;
+  margin-left: 15px;
+}
+.all-users-table table tr th {
+  padding-right: 215px;
+  padding-left: 5px;
+}
+/* User Information Page Styling */
+.user-information {
+  width: 900px;
+  position: absolute;
+  top: 10%;
+  left: 13.5%;
+}
+/* This styling applied to the top pane when the left links are clicked in the guide page */
+.top-pane-2 {
+  width: 16.6vw;
+  height: 12vh;
+}
+.my-books {
+  width: 520px;
+  height: 300px;
+  position: absolute;
+  left: 30px;
+  top: 10px;
+}
+/* Regular Home Page Styling */
+.view-requests {
+  left: 53%;
+  width: 46%;
+}
+.my-books, .new-arrivals {
+  width: 46%;
+}
+.my-books table, .view-requests table, .new-arrivals table, .all-books table  {
+ width: 100%;
+}
+.my-books table tr , .view-requests table tr, .new-arrivals table tr, .all-books table tr {
+  border-bottom: 1px solid #ddd;
+}
+.my-books table tr th , .view-requests table tr th, .new-arrivals table tr th, .all-books table tr th {
+  padding-right: 10px;
+  border-width: thin;
+  background-color: #e2c275;
+  padding-top: 5px;
+  padding-left: 5px;
+}
+.my-books table tr td , .view-requests table tr td, .new-arrivals table tr td, .all-books table tr td {
+  padding-left: 5px;
+}
+.outer-div {
+  width: 100vw;
+  height: 10vh;
+  position: fixed;
+  background-color: white;
+  z-index: -1;
+}
+/* Individual List Styling */
+.books-table {
+  left: 13.5%;
+  width: 80vw;
+}
+.books-table table tr th {
+  padding-right: 180px;
+  position: sticky;
+  top: 95px;
+}
+/* Individual Books List Styling */
+.my-books-table {
+  left: 13.5%;
+  width: 80vw;
+}
+
+.my-books-table table tr th {
+  padding-right: 110px;
+  position: sticky;
+  top: 95px;
+}
+/* Return to Books Button - Search Page */
+.return-to-books {
+  position: absolute;
+  top: 20px;
+  left: 13.5%;
+}
+/* Individual Book Request Styling */
+.requests-table {
+  left: 13.5%;
+}
+.requests-table table tr th {
+  padding-right: 250px;
+  position: sticky;
+  top: 95px;
+}
+/* Book Request Form Styling */
+.pending-request-button {
+  left: 12.9%;
+}
+
+}
